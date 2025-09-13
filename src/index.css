@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* Dark mode toggle via .dark */
+
+@custom-variant dark
+(&is(.dark, .dark *));
+
+@theme {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  --ring-color: var(--border);
+  --border-color: var(--border);
+
+  --shadow-card: 0 6px 24px rgba(0,0,0,0.06);
+
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+}
+
+:root{
+  --primary: #F4B400;   /* Golden Yellow */
+  --primary-foreground: #111827;    /* readable on yellow */
+
+  --bg: #ffffff;    /* Page background */
+  --fg: #111827;    /* Primary text */
+  --surface: #F9FAFB;   /* Card background */
+  --muted: #6b7280;   /* secondary text */
+  --border: #e5e7eb;    /* dividers */
+
+  --success: #22c55e;
+  --warning: #f97316;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+.dark {
+  --primary: #f4b400;
+  --primary-foreground: #111827;
+
+  --bg: #111827;
+  --fg: #f9fafb;
+  --surface: #1f2937;
+  --muted: #9ca3af;
+  --border: #374151;
+
+  --success: #4ade80;
+  --warning: #fb923c;
+  --error: #f87171;
+  --info: #60a5fa;
+}
+
+@layer components{
+  .db-icon{
+    @apply stroke-background
+  }
+  .card {
+    @apply bg-surface text-foreground rounded-2xl shadow-card border;
+  }
+  .focus-ring {
+    @apply outline-none ring-2 ring-offset-2 ring-offset-background;
+  }
+}
