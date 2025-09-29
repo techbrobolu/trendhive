@@ -1,20 +1,15 @@
 import React from 'react'
-import {Arrowup, Arrowdown, FullLogo} from '../ui/Icons'
+import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
 
-export default function Sidebar() {
-  const pages = [
-    {title: "Dashboard", }
-  ]
 
+
+function SideBar() {
   return (
-    <div className="min-h-screen w-fit bg-foreground flex-col p-3.5">
-      <div className='flex gap-18'>
-        <FullLogo />
-        {/* <SidebarReturn className="db-icon" /> */}
-      </div>
-      
-      <Arrowup className="w-15 h-24" />
-      <Arrowdown />
+    <div className="h-screen bg-foreground text-background px-4 py-3.2 transition-transform duration-300 ease-in-out">
+      <h1>SideBar</h1>
     </div>
   )
 }
+
+export default SideBar

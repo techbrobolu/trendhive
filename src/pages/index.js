@@ -1,0 +1,9 @@
+export { default as Dashboard } from './Dashboard';
+export { default as Finance } from './Finance';
+export { default as Goals } from './Goals';
+export { default as Message } from './Message';
+export { default as Products } from './Products';
+export { default as SalesInsights } from './SalesInsights';
+export { default as SalesOrders } from './SalesOrders';
+export { default as Store } from './Store';
+export { default as ToDo } from './ToDo';

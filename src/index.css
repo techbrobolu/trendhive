@@ -11,6 +11,7 @@
   --color-surface: var(--surface);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-icon: var(--icon);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -32,10 +33,11 @@
 
 :root{
   --primary: #F4B400;   /* Golden Yellow */
-  --primary-foreground: #111827;    /* readable on yellow */
+  --primary-foreground: #010203;    /* readable on yellow */
 
-  --bg: #ffffff;    /* Page background */
-  --fg: #111827;    /* Primary text */
+  --bg: #eeeeee;    /* Page background */
+  --fg: #010203;    /* Primary text */
+  --icon: #ffffff;
   --surface: #F9FAFB;   /* Card background */
   --muted: #6b7280;   /* secondary text */
   --border: #e5e7eb;    /* dividers */
@@ -63,13 +65,16 @@
 }
 
 @layer components{
-  .db-icon{
-    @apply stroke-background
+  .sideicon{
+    @apply stroke-background fill-foreground cursor-pointer;
   }
   .card {
     @apply bg-surface text-foreground rounded-2xl shadow-card border;
   }
   .focus-ring {
     @apply outline-none ring-2 ring-offset-2 ring-offset-background;
+  }
+  .sidebar{
+    @apply bg-foreground;
   }
 }
