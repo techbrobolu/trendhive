@@ -76,7 +76,10 @@ export default function SideBar() {
           <GoSidebarCollapse className='cursor-pointer' onClick={() => setIsExpanded(true)} />
           }
         </div>
+      </div>
 
+      {/* Navigation Links */}
+      <div className="flex-1 overflow-y-auto no-scrollbar flex flex-col gap-7">
         {/* Main Menu Links */}
         <div className='flex flex-col gap-4.5'>
           {isExpanded && <h3 className='text-xs ml-6 font-bold'>MAIN MENU</h3>}
@@ -87,37 +90,39 @@ export default function SideBar() {
             ))}
           </nav>
         </div>
+
+        {/* Bottom Menu */}
+        <div className='flex flex-col gap-4'>
+          <div className="h-px bg-gray-700 mx-2 mt-2"></div>
+          <div className='flex flex-col gap-4.5'>
+
+
+            {isExpanded && <p className='text-xs ml-6 font-bold'>HELP & SUPPORT</p>}
+            <nav className='flex flex-col gap-1.5'>
+              {BOTTOM_SIDEBAR_LINKS.map((item) => (
+                <SidebarLink key={item.key} item={item} />
+              ))}
+            </nav>
+          </div>
+        </div>
       </div>
 
-      {/* Bottom Menu */}
-      <div className='flex flex-col gap-4'>
+      
 
-        {/* Help & Support Links */}
-        <div className='flex flex-col gap-4.5'>
-          <div className="h-px bg-gray-700 mx-2 mt-2"></div>
-          {isExpanded && <p className='text-xs ml-6 font-bold'>HELP & SUPPORT</p>}
-          <nav className='flex flex-col gap-1.5'>
-            {BOTTOM_SIDEBAR_LINKS.map((item) => (
-              <SidebarLink key={item.key} item={item} />
-            ))}
-          </nav>
-        </div>
-
-        {/* Logout  */}
-        <div className='flex items-center gap-2 text-red-500 ml-7 py-10 cursor-pointer'>
-          <span><FiLogOut /></span>
-          {isExpanded && 
-            <span className='text-xs'>
-              Logout
-            </span>
-          }
-        </div>
+      {/* Logout  */}
+      <div className='flex items-center gap-2 text-red-500 ml-7 py-6 cursor-pointer flex-shrink-0'>
+        <span><FiLogOut /></span>
+        {isExpanded && 
+          <span className='text-xs'>
+            Logout
+          </span>
+        }
       </div>
 
       { tip.visible && createPortal(
           <div
             style={{position:"fixed", top:tip.y, left:tip.x, transform:"translateY(-50%)"}}
-            className='px-2 py-1 bg-white text-sm rounded shadow-lg z-50 pointer-events-none whitespace-nowrap'
+            className='px-3 py-1 bg-white text-sm rounded shadow-lg z-50 pointer-events-none whitespace-nowrap'
           >
             {tip.label}
           </div>,
